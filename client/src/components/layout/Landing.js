@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "./Landing.css";
+
 
 class Landing extends Component {
   render() {
@@ -11,8 +13,6 @@ class Landing extends Component {
               Providing privacy that is not offered by social media, safe storage, and fun features for you and your family
             </p>
             <br />
-            <img src="https://jooinn.com/images/baby-smile-4.jpg" alt="Smiling Baby" height="50%" width="50%"></img>
-            <br/>
             <div className="col s6">
               <Link
                 to="/register"
@@ -21,7 +21,7 @@ class Landing extends Component {
                   borderRadius: "3px",
                   letterSpacing: "1.5px"
                 }}
-                className="btn btn-large waves-effect waves-light hoverable teal  lighten-2"
+                className="btn btn-large waves-effect waves-light hoverable teal lighten-2"
               >
                 Register
               </Link>
@@ -34,7 +34,7 @@ class Landing extends Component {
                   borderRadius: "3px",
                   letterSpacing: "1.5px"
                 }}
-                className="btn btn-large waves-effect waves-light hoverable teal  lighten-2"
+                className="btn btn-large waves-effect waves-light hoverable teal lighten-2"
               >
                 Log In
               </Link>
