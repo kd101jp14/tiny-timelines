@@ -15,20 +15,20 @@ module.exports = function validateRegisterInput(data) {
   // Name checks
   if (Validator.isEmpty(data.firstName)) {
     errors.firstName = "First name field is required";
-  } else if (Validator.isLength(data.firstName, { min: 2, max: 20 })) {
+  } else if (!Validator.isLength(data.firstName, { min: 2, max: 20 })) {
     errors.firstName = "First name must be between 2 and 20 characters.";
   }
 
   if (Validator.isEmpty(data.lastName)) {
     errors.lastName = "Last name field is required";
-  } else if (Validator.isLength(data.lastName, { min: 2, max: 50 })) {
+  } else if (!Validator.isLength(data.lastName, { min: 2, max: 50 })) {
     errors.lastName = "Last name must be between 2 and 20 characters.";
   }
 
   // Baby name checks
   if (Validator.isEmpty(data.babyName)) {
     errors.babyName = "Baby name field is required";
-  } else if (Validator.isLength(data.babyName, { min: 2, max: 50 })) {
+  } else if (!Validator.isLength(data.babyName, { min: 2, max: 50 })) {
     errors.babyName = "Baby name must be between 2 and 50 characters.";
   }
 
