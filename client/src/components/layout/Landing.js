@@ -7,13 +7,12 @@ class Landing extends Component {
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
-            <h4>
-              <b>Safely and Securely</b> save and view the sweet memories of your tiny one!
-            </h4>
             <p className="flow-text grey-text text-darken-1">
               Providing privacy that is not offered by social media, safe storage, and fun features for you and your family
             </p>
             <br />
+            <img src="https://jooinn.com/images/baby-smile-4.jpg" alt="Smiling Baby" height="50%" width="50%"></img>
+            <br/>
             <div className="col s6">
               <Link
                 to="/register"
