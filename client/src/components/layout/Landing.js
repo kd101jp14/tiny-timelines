@@ -8,13 +8,10 @@ class Landing extends Component {
         <div className="row">
           <div className="col s12 center-align">
             <h4>
-              <b>Build</b> a login/auth app with the{" "}
-              <span style={{ fontFamily: "monospace" }}>MERN</span> stack from
-              scratch
+              <b>Safely and Securely</b> save and view the sweet memories of your tiny one!
             </h4>
             <p className="flow-text grey-text text-darken-1">
-              Create a (minimal) full-stack app with user authentication via
-              passport and JWTs
+              Providing privacy that is not offered by social media, safe storage, and fun features for you and your family
             </p>
             <br />
             <div className="col s6">
@@ -38,7 +35,7 @@ class Landing extends Component {
                   borderRadius: "3px",
                   letterSpacing: "1.5px"
                 }}
-                className="btn btn-large btn-flat waves-effect teal pink-text"
+                className="btn btn-large waves-effect waves-light hoverable teal  lighten-2"
               >
                 Log In
               </Link>
