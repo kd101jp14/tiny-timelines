@@ -12,10 +12,9 @@ class Navbar extends Component {
               style={{
                 fontFamily: "monospace"
               }}
-              className="col s5 brand-logo center pink-text"
+              className="col s5 brand-logo center white-text"
             >
-              <i className="material-icons">code</i>
-              MERN
+              <i class="fas fa-baby-carriage"><h5> Tiny Timelines</h5></i>
             </Link>
           </div>
         </nav>
