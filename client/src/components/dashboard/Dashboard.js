@@ -15,15 +15,15 @@ class Dashboard extends Component {
     return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
-          <div className="col s12 center-align">
-            <h4>
+          <div className="col s12 center-align blue-grey-text text-darken-4">
+            <h5>
               Hello, {user.firstName.split(" ")[0]}!
               <br />
-            </h4>
-            <h3>
+            </h5>
+            <h4>
               {" "}
               How's little <b>{user.babyName.split(" ")[0]}</b>?
-            </h3>
+            </h4>
             <button
               style={{
                 width: "150px",
