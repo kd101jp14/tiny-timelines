@@ -64,7 +64,7 @@ class Login extends Component {
               <h4>
                 <b>Login</b> below
               </h4>
-              <p className="grey-text text-darken-1">
+              <p className="grey-text text-darken-4">
                 Don't have an account? <Link to="/register">Register</Link>
               </p>
             </div>
@@ -80,7 +80,7 @@ class Login extends Component {
                     invalid: errors.email || errors.emailnotfound
                   })}
                 />
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email" className="blue-text text-darken-2"><b>Email</b></label>
                 <span className="red-text">
                   {errors.email}
                   {errors.emailnotfound}
@@ -97,7 +97,7 @@ class Login extends Component {
                     invalid: errors.password || errors.passwordincorrect
                   })}
                 />
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password" className="blue-text text-darken-2"><b>Password</b></label>
                 <span className="red-text">
                   {errors.password}
                   {errors.passwordincorrect}
