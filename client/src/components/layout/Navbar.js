@@ -14,7 +14,7 @@ class Navbar extends Component {
               }}
               className="col s5 brand-logo center white-text"
             >
-              <i class="fas fa-baby-carriage"> Tiny Timelines </i>
+              <i className="fas fa-baby-carriage"> Tiny Timelines </i>
             </Link>
           </div>
         </nav>
