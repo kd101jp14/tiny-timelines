@@ -6,11 +6,11 @@ import "./Landing.css";
 class Landing extends Component {
   render() {
     return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
+      <div style={{ height: "30vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
             <p className="flow-text blue-grey-text text-darken-4">
-              <b>Privacy (not offered by social media), safe storage, and fun features for you and your family!</b>
+              Privacy, safe storage, and fun features for you and your family!
             </p>
             <br />
             <div className="col s6">
