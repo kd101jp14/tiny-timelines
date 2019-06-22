@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import { submitForm } from "../../actions/formActions";
+import Tracker from "../trackers/Trackers";
+import TwoColumnLayout from "../layout/TwoColumn";
+import TitleSection from "../layout/TitleSection";
+import StoryForm from "../forms/StoryForm";
 import "./Dashboard.css";
 
 class Dashboard extends Component {
@@ -10,35 +15,41 @@ class Dashboard extends Component {
     this.props.logoutUser();
   };
 
+
+  submit = (inputVal) => {
+    console.log("Auth State", this.props.auth);
+    this.props.submitForm(inputVal, this.props.auth.user);
+  }
+
   render() {
     const { user } = this.props.auth;
     console.log(user);
     return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
-        <div className="row">
-          <div className="col s12 center-align blue-grey-text text-darken-4">
-            <h5>
-              Hello, {user.firstName.split(" ")[0]}!
-              <br />
-            </h5>
-            <h4>
-              {" "}
-              How's little <b>{user.babyName.split(" ")[0]}</b>?
-            </h4>
-            <button
-              style={{
-                width: "150px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                marginTop: "1rem"
-              }}
-              onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-            >
-              Logout
-            </button>
+      <div>
+        <TwoColumnLayout>
+          <TitleSection title={"Hello," + user.firstName.split(" ")[0] + "!"} />
+          <TitleSection
+            title={"How's little" + user.babyName.split(" ")[0] + "?"}
+          >
+            <StoryForm onSubmit={this.submit} />
+          </TitleSection>
+          <div className="row">
+            <div className="col s12 center-align blue-grey-text text-darken-4">
+              <button
+                style={{
+                  width: "150px",
+                  borderRadius: "3px",
+                  letterSpacing: "1.5px",
+                  marginTop: "1rem"
+                }}
+                onClick={this.onLogoutClick}
+                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+              >
+                Logout
+              </button>
+            </div>
           </div>
-        </div>
+        </TwoColumnLayout>
       </div>
     );
   }
@@ -53,7 +64,15 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
+const mapDispatchToProps = dispatch => {
+  return {
+    logoutUser: () => dispatch(logoutUser()),
+    submitForm: (story, user) => dispatch(submitForm(story, user.email))
+  }
+}
+
 export default connect(
   mapStateToProps,
-  { logoutUser }
+  mapDispatchToProps
+  //{ logoutUser }
 )(Dashboard);

@@ -1,0 +1,13 @@
+.two-column-container {
+    display: flex;
+}
+
+.two-column-container .left-column, .two-column-container .right-column{
+}
+
+.two-column-container .left-column{
+    width: 30%;
+}
+.two-column-container .right-column{
+    width: 70%;
+}

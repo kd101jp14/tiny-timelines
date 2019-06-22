@@ -15,6 +15,10 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  stories: {
+    type: Array,
+    required: false
+  },
   email: {
     type: String,
     required: true
