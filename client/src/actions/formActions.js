@@ -1,4 +1,5 @@
 import axios from "axios";
+import moment from "moment";
 
 import {
   SUBMIT_FORM_REQUEST
@@ -8,7 +9,8 @@ import {
 export const submitForm = (inputValue, userEmail) => {
   var data = {
     email: userEmail,
-    story: inputValue
+    story: inputValue,
+    date: moment().format('MMMM Do YYYY')
   }
   return (dispatch) => {
     axios

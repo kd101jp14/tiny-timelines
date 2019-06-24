@@ -67,7 +67,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     logoutUser: () => dispatch(logoutUser()),
-    submitForm: (story, user) => dispatch(submitForm(story, user.email))
+    submitForm: (story, user, date) => dispatch(submitForm(story, user.email, date))
   }
 }
 

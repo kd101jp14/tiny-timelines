@@ -31,7 +31,12 @@ router.post("/submit", (req, res) => {
         user.stories = [];
     }
 
-    user.stories.push(req.body.story);
+    const newStory = {
+      content: req.body.story,
+      createDate: req.body.date
+    };
+
+    user.stories.push(newStory);
     user.save()
     .then(user => res.json(user))
     .catch(err => console.log(err));

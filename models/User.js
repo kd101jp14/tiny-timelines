@@ -17,7 +17,11 @@ const UserSchema = new Schema({
   },
   stories: {
     type: Array,
-    required: false
+    required: false,
+    date: {
+      type: Array,
+      required: false
+    }
   },
   email: {
     type: String,
