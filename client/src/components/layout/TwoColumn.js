@@ -15,7 +15,7 @@ class TwoColumnLayout extends Component {
                 borderRadius: "3px",
                 letterSpacing: "1.5px"
               }}
-              className="btn btn-large waves-effect waves-light hoverable teal lighten-2"
+              className="nav-btn btn btn-large waves-effect waves-light hoverable teal lighten-2"
             >
               Home
             </Link>
@@ -28,7 +28,7 @@ class TwoColumnLayout extends Component {
                 borderRadius: "3px",
                 letterSpacing: "1.5px"
               }}
-              className="btn btn-large waves-effect waves-light hoverable teal lighten-2"
+              className="nav-btn btn btn-large waves-effect waves-light hoverable teal lighten-2"
             >
               Stories
             </Link>
@@ -41,7 +41,7 @@ class TwoColumnLayout extends Component {
                 borderRadius: "3px",
                 letterSpacing: "1.5px"
               }}
-              className="btn btn-large waves-effect waves-light hoverable teal lighten-2"
+              className="nav-btn btn btn-large waves-effect waves-light hoverable teal lighten-2"
             >
               Photos
             </Link>
@@ -54,7 +54,7 @@ class TwoColumnLayout extends Component {
                 borderRadius: "3px",
                 letterSpacing: "1.5px"
               }}
-              className="btn btn-large waves-effect waves-light hoverable teal lighten-2"
+              className="nav-btn btn btn-large waves-effect waves-light hoverable teal lighten-2"
             >
               Trackers
             </Link>
