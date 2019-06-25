@@ -7,6 +7,7 @@ const passport = require("passport");
 
 const users = require("./routes/api/users");
 const forms = require("./routes/api/forms");
+const stories = require("./routes/api/stories");
 
 const app = express();
 
@@ -36,6 +37,7 @@ require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
 app.use("/api/forms", forms);
+app.use("/api/stories", stories);
 
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port
 

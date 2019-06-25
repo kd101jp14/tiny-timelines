@@ -83,6 +83,7 @@ router.post("/login", (req, res) => {
           id: user.id,
           firstName: user.firstName,
           lastName: user.lastName,
+          email: req.body.email,
           babyName: user.babyName
         };
 

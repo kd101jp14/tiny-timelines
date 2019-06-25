@@ -7,15 +7,20 @@ import {
 
 // Register User
 export const submitForm = (inputValue, userEmail) => {
-  var data = {
+  const data = {
     email: userEmail,
     story: inputValue,
     date: moment().format('MMMM Do YYYY')
   }
   return (dispatch) => {
+    dispatch ({ 
+      type: SUBMIT_FORM_REQUEST
+    });
     axios
       .post("/api/forms/submit", data)
       .then(res => {
+        dispatch ({ 
+        });
         console.log("Success!");
         //dispatch
       })
