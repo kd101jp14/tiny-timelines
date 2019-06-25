@@ -27,9 +27,9 @@ class Dashboard extends Component {
     return (
       <div>
         <TwoColumnLayout>
-          <TitleSection title={"Hello," + user.firstName.split(" ")[0] + "!"} />
+          <TitleSection title={"Hello, " + user.firstName.split(" ")[0] + "!"} />
           <TitleSection
-            title={"How's little" + user.babyName.split(" ")[0] + "?"}
+            title={"What's new with " + user.babyName.split(" ")[0] + "?"}
           >
             <StoryForm onSubmit={this.submit} />
           </TitleSection>
