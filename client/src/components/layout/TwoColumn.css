@@ -1,8 +1,6 @@
 .two-column-container {
     display: flex;
-}
-
-.two-column-container .left-column, .two-column-container .right-column{
+    margin: 50px;
 }
 
 .two-column-container .left-column{
