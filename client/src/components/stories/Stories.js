@@ -28,17 +28,16 @@ class Stories extends Component {
   render() {
     const { user } = this.props.auth;
     console.log(user);
-    console.log("stories: ", this.props.stories);
+    console.log("stories: ", this.props.stories.stories);
     return (
       <div>
         <TwoColumnLayout>
-          <TitleSection title={"Hello," + user.firstName.split(" ")[0] + "!"} />
+          <TitleSection title={"Hello, " + user.firstName.split(" ")[0] + "!"} />
           <TitleSection
-            title={"How's little" + user.babyName.split(" ")[0] + "?"}
+            title={"Here are " + user.babyName.split(" ")[0] + "'s stories!"}
           >
-            <StoryForm onSubmit={this.submit} />
           </TitleSection>
-          {this.renderStories(this.props.stories)}
+          {this.renderStories(this.props.stories.stories)}
           <div className="row">
             <div className="col s12 center-align blue-grey-text text-darken-4">
               <button
