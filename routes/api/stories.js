@@ -27,8 +27,8 @@ router.post("/getall", (req, res) => {
       return res.status(400).json({ email: "That email does not exists" });
     } 
 
-    console.log(user.stories.stories);
-    return res.json(user.stories.stories);
+    // console.log(user.stories);
+    return res.json(user.stories);
   });
 });
 

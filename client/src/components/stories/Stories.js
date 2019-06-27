@@ -5,7 +5,6 @@ import { logoutUser } from "../../actions/authActions";
 import { getStories } from "../../actions/storyActions";
 import TwoColumnLayout from "../layout/TwoColumn";
 import TitleSection from "../layout/TitleSection";
-import StoryForm from "../forms/StoryForm";
 
 class Stories extends Component {
   onLogoutClick = e => {
@@ -18,26 +17,45 @@ class Stories extends Component {
     this.props.getStories(user.email);
   }
 
-  renderStories = (stories) => {
+  renderStories = stories => {
     let storiesElement = [];
-    for(let i = 0; i < stories.length; i ++){
-      storiesElement.push(<div>{stories[i].content} - {stories[i].createDate}</div>)
+    for (let i = 0; i < stories.length; i++) {
+      storiesElement.push(
+        <div>
+          {stories[i].content} - {stories[i].createDate}
+        </div>
+      );
     }
-  }
+  };
 
   render() {
     const { user } = this.props.auth;
-    console.log(user);
-    console.log("stories: ", this.props.stories.stories);
+    // console.log(user);
+    // console.log("stories: ", this.props.stories);
     return (
       <div>
         <TwoColumnLayout>
-          <TitleSection title={"Hello, " + user.firstName.split(" ")[0] + "!"} />
           <TitleSection
             title={"Here are " + user.babyName.split(" ")[0] + "'s stories!"}
-          >
-          </TitleSection>
-          {this.renderStories(this.props.stories.stories)}
+          />
+          {this.renderStories(this.props.stories)}
+          {this.props.stories.stories.map(story => {
+            return (
+              <div
+                className="stories-container"
+                style={{ backgroundColor: "rgba(77, 182, 172, 0.5)", color: "rgba(1, 55, 105, 1)" }}
+              >
+                <div>
+                  <p>
+                    {story.content}
+                    {<br />}
+                    {"Created on: "}
+                    {story.createDate}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
           <div className="row">
             <div className="col s12 center-align blue-grey-text text-darken-4">
               <button
@@ -73,9 +91,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     logoutUser: () => dispatch(logoutUser()),
-    getStories: (userEmail) => dispatch(getStories(userEmail))
-  }
-}
+    getStories: userEmail => dispatch(getStories(userEmail))
+  };
+};
 
 export default connect(
   mapStateToProps,

@@ -7,6 +7,7 @@ import Tracker from "../trackers/Trackers";
 import TwoColumnLayout from "../layout/TwoColumn";
 import TitleSection from "../layout/TitleSection";
 import StoryForm from "../forms/StoryForm";
+import ImageUpload from "../imageUpload/imageUpload";
 import "./Dashboard.css";
 
 class Dashboard extends Component {
@@ -16,9 +17,14 @@ class Dashboard extends Component {
   };
 
 
-  submit = (inputVal) => {
+  storySubmit = (inputVal) => {
     console.log("Auth State", this.props.auth);
     this.props.submitForm(inputVal, this.props.auth.user);
+  }
+
+  pictureSubmit = (pictures) => {
+    console.log("Dashboard callback", pictures)
+    this.props.submitForm(pictures, this.props.auth.user);
   }
 
   render() {
@@ -31,8 +37,15 @@ class Dashboard extends Component {
           <TitleSection
             title={"What's new with " + user.babyName.split(" ")[0] + "?"}
           >
-            <StoryForm onSubmit={this.submit} />
+            <StoryForm onSubmit={this.storySubmit} />
           </TitleSection>
+
+          <TitleSection
+            title="Photo Upload"
+          >
+            <ImageUpload onSubmit={this.pictureSubmit} />
+          </TitleSection>
+
           <div className="row">
             <div className="col s12 center-align blue-grey-text text-darken-4">
               <button
