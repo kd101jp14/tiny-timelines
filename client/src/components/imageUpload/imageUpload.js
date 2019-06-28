@@ -12,14 +12,16 @@ class ImageUpload extends Component {
         }
     }
 
-    onImageChange = (picture) => {
+    onImageChange = picture => {
         console.log("Picture", picture);
         this.setState({pictures: picture})
     }
 
-    submitForm = (event) => {
+    postPictures = () => {
         console.log("Clicked!", this.state.pictures);
         this.props.onSubmit(this.state.pictures);
+        // Clear out pictures right after being submitted
+        this.setState({ pictures: [] });
     }
 
   render() {
@@ -30,12 +32,12 @@ class ImageUpload extends Component {
                 buttonText='Choose images'
                 onChange={this.onImageChange}
                 withPreview={true}
-                imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                imgExtension={['.jpg', '.gif', '.png', '.jpeg']}
                 maxFileSize={5242880}
             />
 
             <div>
-                <button className="btn" onClick={this.submitForm}>
+                <button className="btn" onClick={this.postPictures}>
                     Submit
                 </button>
             </div>

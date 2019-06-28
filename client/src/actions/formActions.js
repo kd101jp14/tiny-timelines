@@ -12,7 +12,7 @@ export const submitForm = (inputValue, userEmail) => {
     story: inputValue,
     date: moment().format('MMMM Do YYYY')
   }
-  return (dispatch) => {
+  return dispatch => {
     dispatch ({ 
       type: SUBMIT_FORM_REQUEST
     });

@@ -8,7 +8,7 @@ import TwoColumnLayout from "../layout/TwoColumn";
 import TitleSection from "../layout/TitleSection";
 import StoryForm from "../forms/StoryForm";
 import ImageUpload from "../imageUpload/imageUpload";
-import "./Dashboard.css";
+import { postPictures } from "../../actions/pictureActions";
 
 class Dashboard extends Component {
   onLogoutClick = e => {
@@ -24,7 +24,7 @@ class Dashboard extends Component {
 
   pictureSubmit = (pictures) => {
     console.log("Dashboard callback", pictures)
-    this.props.submitForm(pictures, this.props.auth.user);
+    this.props.postPictures(pictures, this.props.auth.user);
   }
 
   render() {
@@ -80,7 +80,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     logoutUser: () => dispatch(logoutUser()),
-    submitForm: (story, user, date) => dispatch(submitForm(story, user.email, date))
+    submitForm: (story, user, date) => dispatch(submitForm(story, user.email, date)),
+    postPictures: (picture, user) => dispatch(postPictures(picture, user.email))
   }
 }
 

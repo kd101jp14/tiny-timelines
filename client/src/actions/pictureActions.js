@@ -4,10 +4,10 @@ import * as Types from "./types";
 import { types } from "util";
 
 // Register User
-export const postPictures = (pictures) => {
+export const postPictures = (pictures, userEmail) => {
   return (dispatch) => {
     // use AWS s3 library to post. 
-      // TODO: Create free teir aws s3 bucket; Create accessId & acessKey as needed to use aws s3 NPM package.
+      // TODO: Create free tier aws s3 bucket; Create accessId & acessKey as needed to use aws s3 NPM package.
 
 
       // WATCHOUT: May need to upload one image at a time - check the documentation for the image upload to limit.
@@ -23,7 +23,7 @@ export const postPictures = (pictures) => {
   }
 };
 
-export const getPictures = (userEmail) => {
+export const getPictures = userEmail => {
   return (dispatch) => {
 
       //aws.getFromBucket (i made this up)
