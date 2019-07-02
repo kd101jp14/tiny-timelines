@@ -78,7 +78,7 @@ class Dashboard extends Component {
       <div>
         <TwoColumnLayout>
           <TitleSection
-            title={"Hello, " + user.firstName.split(" ")[0] + "!"}
+            title={"Welcome, " + user.firstName.split(" ")[0] + "!"}
           />
           <TitleSection
             title={"What's new with " + user.babyName.split(" ")[0] + "?"}
