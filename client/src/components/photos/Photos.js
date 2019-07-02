@@ -13,7 +13,6 @@ class Photos extends Component {
     this.props.logoutUser();
   };
 
-
   render() {
     const { user } = this.props.auth;
     return (
@@ -22,24 +21,6 @@ class Photos extends Component {
           <TitleSection
             title={"Here are " + user.babyName.split(" ")[0] + "'s photos!"}
           />
-
-
-          <div className="row">
-            <div className="col s12 center-align blue-grey-text text-darken-4">
-              <button
-                style={{
-                  width: "150px",
-                  borderRadius: "3px",
-                  letterSpacing: "1.5px",
-                  marginTop: "1rem"
-                }}
-                onClick={this.onLogoutClick}
-                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-              >
-                Logout
-              </button>
-            </div>
-          </div>
         </TwoColumnLayout>
       </div>
     );

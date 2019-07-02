@@ -26,7 +26,7 @@ class Navbar extends Component {
                   letterSpacing: "1.5px",
                   float: "right",
                   marginTop: "4px",
-                  marginRight:"20px"
+                  marginRight: "20px"
                 }}
                 onClick={this.onLogoutClick}
                 className="btn btn-large waves-effect waves-light hoverable blue accent-3"
