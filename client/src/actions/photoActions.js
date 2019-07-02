@@ -3,8 +3,7 @@ import axios from "axios";
 import * as Types from "./types";
 import { types } from "util";
 
-// Register User
-export const postPictures = (pictures, userEmail) => {
+export const postingPictures = (userEmail, pictures) => {
   return (dispatch) => {
     // use AWS s3 library to post. 
       // TODO: Create free tier aws s3 bucket; Create accessId & acessKey as needed to use aws s3 NPM package.
@@ -23,7 +22,7 @@ export const postPictures = (pictures, userEmail) => {
   }
 };
 
-export const getPictures = userEmail => {
+export const gettingPictures = userEmail => {
   return (dispatch) => {
 
       //aws.getFromBucket (i made this up)

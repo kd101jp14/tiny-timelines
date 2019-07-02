@@ -2,7 +2,6 @@ import axios from "axios";
 
 import * as Types from "./types";
 
-// Register User
 export const getStories = (userEmail) => {
   var data = {
     email: userEmail

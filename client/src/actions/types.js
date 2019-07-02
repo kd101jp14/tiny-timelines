@@ -12,8 +12,8 @@ export const GETTING_STORIES = "GETTING_STORIES";
 export const GOT_STORIES = "GOT_STORIES";
 export const FAILED_GETTING_STORIES = "FAILED_GETTING_STORIES";
 
-// Images
-export const POSTING_IMAGES = "POSTING_IMAGES";
-export const POSTED_IMAGES = "POSTED_IMAGES";
-export const GETTING_IMAGES = "GETTING_IMAGES";
-export const GOT_IMAGES = "GOT_IMAGES";
+// Photos
+export const POSTING_PHOTOS = "POSTING_PHOTOS";
+export const POSTED_PHOTOS = "POSTED_PHOTOS";
+export const GETTING_PHOTOS = "GETTING_PHOTOS";
+export const GOT_PHOTOS = "GOT_PHOTOS";

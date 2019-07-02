@@ -57,12 +57,16 @@ router.post("/register", (req, res) => {
 router.post("/login", (req, res) => {
   // Form validation
 
+  console.log("Hit Login API");
+  console.log(req.body)
   const { errors, isValid } = validateLoginInput(req.body);
 
   // Check validation
   if (!isValid) {
     return res.status(400).json(errors);
   }
+
+console.log("It's valid")
 
   const email = req.body.email;
   const password = req.body.password;

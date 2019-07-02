@@ -4,10 +4,10 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 
-
 const users = require("./routes/api/users");
 const forms = require("./routes/api/forms");
 const stories = require("./routes/api/stories");
+const photos = require("./routes/api/photos");
 
 const app = express();
 
@@ -28,7 +28,7 @@ mongoose
   .then(() => console.log("MongoDB successfully connected!"))
   .catch(err => console.log(err));
 
-  // Passport middleware
+// Passport middleware
 app.use(passport.initialize());
 
 // Passport config
@@ -38,6 +38,7 @@ require("./config/passport")(passport);
 app.use("/api/users", users);
 app.use("/api/forms", forms);
 app.use("/api/stories", stories);
+app.use("/api/photos", photos);
 
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port
 

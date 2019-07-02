@@ -2,11 +2,11 @@ import { combineReducers } from "redux";
 import authReducers from "./authReducers";
 import errorReducers from "./errorReducers";
 import storyReducers from "./storyReducers";
-import pictureReducers from "./pictureReducers";
+import photoReducers from "./photoReducers";
 
 export default combineReducers({
   auth: authReducers,
   errors: errorReducers,
   stories: storyReducers,
-  pictures: pictureReducers
+  photos: photoReducers
 });
