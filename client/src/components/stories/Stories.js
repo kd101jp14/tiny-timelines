@@ -39,7 +39,7 @@ class Stories extends Component {
             title={"Here are " + user.babyName.split(" ")[0] + "'s stories!"}
           />
           {this.renderStories(this.props.stories)}
-          {this.props.stories.stories.map(story => {
+          {this.props.stories.stories.reverse().map(story => {
             return (
               <div
                 className="stories-container"
