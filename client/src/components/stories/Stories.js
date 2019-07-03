@@ -17,29 +17,17 @@ class Stories extends Component {
     this.props.getStories(user.email);
   }
 
-  renderStories = stories => {
-    let storiesElement = [];
-    for (let i = 0; i < stories.length; i++) {
-      storiesElement.push(
-        <div>
-          {stories[i].content} - {stories[i].createDate}
-        </div>
-      );
-    }
-  };
-
   render() {
     const { user } = this.props.auth;
-    // console.log(user);
-    // console.log("stories: ", this.props.stories);
+    console.log(user);
+    console.log("stories: ", this.props.stories);
     return (
       <div>
         <TwoColumnLayout>
           <TitleSection
             title={"Here are " + user.babyName.split(" ")[0] + "'s stories!"}
           />
-          {this.renderStories(this.props.stories)}
-          {this.props.stories.stories.reverse().map(story => {
+          {this.props.stories.stories.map(story => {
             return (
               <div
                 className="stories-container"

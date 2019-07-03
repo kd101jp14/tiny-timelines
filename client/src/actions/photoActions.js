@@ -1,7 +1,6 @@
 import axios from "axios";
 
 import * as Types from "./types";
-import { types } from "util";
 
 export const postingPictures = (userEmail, pictures) => {
   return (dispatch) => {

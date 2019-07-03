@@ -2,7 +2,7 @@ import axios from "axios";
 
 import * as Types from "./types";
 
-export const getStories = (userEmail) => {
+export const getStories = userEmail => {
   var data = {
     email: userEmail
   };

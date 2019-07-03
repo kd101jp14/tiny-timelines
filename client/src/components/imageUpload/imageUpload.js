@@ -8,20 +8,21 @@ class ImageUpload extends Component {
         super(props);
 
         this.state= {
-            pictures: []
+            photos: []
         }
     }
 
-    onImageChange = picture => {
-        console.log("Picture", picture);
-        this.setState({pictures: picture})
+    onImageChange = photo => {
+        console.log("photo", photo);
+        this.setState({photos: photo})
     }
 
-    postPictures = () => {
-        console.log("Clicked!", this.state.pictures);
-        this.props.onSubmit(this.state.pictures);
-        // Clear out pictures right after being submitted
-        this.setState({ pictures: [] });
+    postPhotos = () => {
+        console.log("Clicked!", this.state.photos);
+        this.props.onSubmit(this.state.photos);
+        // Clear out photos right after being submitted
+        // this.setState({ photos: [] });
+        
     }
 
   render() {
@@ -37,7 +38,7 @@ class ImageUpload extends Component {
             />
 
             <div>
-                <button className="btn" onClick={this.postPictures}>
+                <button className="btn" onClick={this.postPhotos}>
                     Submit
                 </button>
             </div>

@@ -19,8 +19,6 @@ export const submitForm = (inputValue, userEmail) => {
     axios
       .post("/api/forms/submit", data)
       .then(res => {
-        dispatch ({ 
-        });
         console.log("Success!");
         //dispatch
       })

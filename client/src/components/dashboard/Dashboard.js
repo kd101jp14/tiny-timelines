@@ -8,6 +8,7 @@ import TwoColumnLayout from "../layout/TwoColumn";
 import TitleSection from "../layout/TitleSection";
 import StoryForm from "../forms/StoryForm";
 import ImageUpload from "../imageUpload/imageUpload";
+import WeightEntry from "../weightEntry/WeightEntry";
 import S3 from "aws-s3";
 import * as Keys from "../../keys";
 import { postingPictures } from "../../actions/photoActions";
@@ -47,12 +48,18 @@ class Dashboard extends Component {
     this.props.submitForm(inputVal, this.props.auth.user);
   };
 
+  weightSubmit = weightVal => {
+    console.log("Weight submitted!");
+    this.props.submitWeight(weightVal, this.props.auth.user);
+  };
+
   pictureSubmit = pictures => {
     console.log("Dashboard callback", pictures);
     // this.props.postingPictures(pictures, this.props.auth.user);
 
     const config = {
       bucketName: this.state.AWS_BUCKET_NAME,
+      // Photos are stored in folders that are distingished by email
       dirName: this.props.auth.user.email,
       region: this.state.AWS_BUCKET_REGION,
       accessKeyId: this.state.AWS_BUCKET_ID,
@@ -88,6 +95,10 @@ class Dashboard extends Component {
 
           <TitleSection title="Photo Upload">
             <ImageUpload onSubmit={this.pictureSubmit} />
+          </TitleSection>
+
+          <TitleSection title="Weight Entry">
+            <WeightEntry onSubmit={this.weightSubmit} />
           </TitleSection>
         </TwoColumnLayout>
       </div>

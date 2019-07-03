@@ -23,6 +23,14 @@ const UserSchema = new Schema({
       required: false
     }
   },
+  photos: {
+    type: Array,
+    required: false,
+    date: {
+      type: Array,
+      required: false
+    }
+  },
   email: {
     type: String,
     required: true
