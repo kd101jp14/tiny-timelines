@@ -48,7 +48,7 @@ class TwoColumnLayout extends Component {
           </div>
           <div className="col s6">
             <Link
-              to="/trackers"
+              to="/weights"
               style={{
                 width: "140px",
                 borderRadius: "3px",
@@ -56,7 +56,7 @@ class TwoColumnLayout extends Component {
               }}
               className="nav-btn btn btn-large waves-effect waves-light hoverable teal lighten-2"
             >
-              Trackers
+              Weights
             </Link>
           </div>
         </div>

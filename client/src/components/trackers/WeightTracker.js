@@ -2,11 +2,15 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import { getStories } from "../../actions/storyActions";
+import { getWeights } from "../../actions/trackerActions";
+import "./WeightTracker.css";
+// import { Line, defaults } from "react-chartjs-2";
 import TwoColumnLayout from "../layout/TwoColumn";
 import TitleSection from "../layout/TitleSection";
 
-class Stories extends Component {
+// defaults.global.maintainAspectRatio = false
+
+class Weights extends Component {
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
@@ -14,24 +18,24 @@ class Stories extends Component {
 
   componentDidMount() {
     const { user } = this.props.auth;
-    this.props.getStories(user.email);
+    this.props.getWeights(user.email);
   }
 
   render() {
     const { user } = this.props.auth;
     console.log(user);
-    console.log("stories: ", this.props.stories);
-    
+    console.log("weights: ", this.props.weights);
+
     return (
       <div>
         <TwoColumnLayout>
           <TitleSection
-            title={"Here are " + user.babyName.split(" ")[0] + "'s stories!"}
+            title={"Here are " + user.babyName.split(" ")[0] + "'s weights!"}
           />
-          {this.props.stories.stories.map(story => {
+          {this.props.weights.weights.map(weight => {
             return (
               <div
-                className="stories-container"
+                className="weights-container"
                 style={{
                   backgroundColor: "rgba(77, 182, 172, 0.5)",
                   color: "rgba(1, 55, 105, 1)"
@@ -39,10 +43,10 @@ class Stories extends Component {
               >
                 <div>
                   <p>
-                    {story.content}
+                    {weight.weight}
                     {<br />}
                     {"Created on: "}
-                    {story.createDate}
+                    {weight.date}
                   </p>
                 </div>
               </div>
@@ -54,25 +58,25 @@ class Stories extends Component {
   }
 }
 
-Stories.propTypes = {
+Weights.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  stories: state.stories
+  weights: state.weights
 });
 
 const mapDispatchToProps = dispatch => {
   return {
     logoutUser: () => dispatch(logoutUser()),
-    getStories: userEmail => dispatch(getStories(userEmail))
+    getWeights: userEmail => dispatch(getWeights(userEmail))
   };
 };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
-  //{ logoutUser }
-)(Stories);
+  mapDispatchToProps,
+  // { logoutUser }
+)(Weights);

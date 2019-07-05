@@ -4,9 +4,6 @@ const router = express.Router();
 // Load User model
 const User = require("../../models/User");
 
-// @route POST api/users/register
-// @desc Register user
-// @access Public
 router.post("/submit", (req, res) => {
   // Form validation
 
@@ -40,7 +37,5 @@ router.post("/submit", (req, res) => {
 
   });
 });
-
-
 
 module.exports = router;

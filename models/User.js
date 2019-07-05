@@ -34,10 +34,6 @@ const UserSchema = new Schema({
   weights: {
     type: Array,
     required: false,
-    weight: {
-      type: Array,
-      required: false
-    },
     date: {
       type: Array,
       required: false

@@ -9,6 +9,7 @@ const forms = require("./routes/api/forms");
 const stories = require("./routes/api/stories");
 const photos = require("./routes/api/photos");
 const weights = require("./routes/api/weights");
+const tracker = require("./routes/api/tracker");
 
 const app = express();
 
@@ -41,6 +42,7 @@ app.use("/api/forms", forms);
 app.use("/api/stories", stories);
 app.use("/api/photos", photos);
 app.use("/api/weights", weights);
+app.use("/api/tracker", tracker);
 
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port
 

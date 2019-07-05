@@ -1,15 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-// Load input validation
-const validateRegisterInput = require("../../validation/register");
-
 // Load User model
 const User = require("../../models/User");
 
-// @route POST api/users/register
-// @desc Register user
-// @access Public
 router.post("/submit", (req, res) => {
   // Form validation
 
@@ -43,7 +37,5 @@ router.post("/submit", (req, res) => {
 
   });
 });
-
-
 
 module.exports = router;

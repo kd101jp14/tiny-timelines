@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { submitForm } from "../../actions/formActions";
 import { submitWeight } from "../../actions/weightActions";
-import Tracker from "../trackers/Trackers";
+import Tracker from "../trackers/WeightTracker";
 import TwoColumnLayout from "../layout/TwoColumn";
 import TitleSection from "../layout/TitleSection";
 import StoryForm from "../forms/StoryForm";
@@ -49,9 +49,9 @@ class Dashboard extends Component {
     this.props.submitForm(inputVal, this.props.auth.user);
   };
 
-  weightSubmit = weight => {
+  weightSubmit = weightVal => {
     console.log("Weight submitted!");
-    this.props.submitWeight(weight, this.props.auth.user);
+    this.props.submitWeight(weightVal, this.props.auth.user);
   };
 
   pictureSubmit = pictures => {

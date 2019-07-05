@@ -1,31 +1,30 @@
 import axios from "axios";
 import moment from "moment";
+import * as Types from "./types";
 
-import {
-  SUBMIT_FORM_REQUEST
-} from "./types";
-
-// Register User
 export const submitForm = (inputValue, userEmail) => {
   const data = {
     email: userEmail,
     story: inputValue,
-    date: moment().format('MMMM Do YYYY')
-  }
+    date: moment().format("MMMM Do YYYY")
+  };
   return dispatch => {
-    dispatch ({ 
-      type: SUBMIT_FORM_REQUEST
+    dispatch({
+      type: Types.SUBMIT_FORM_REQUEST
     });
     axios
       .post("/api/forms/submit", data)
       .then(res => {
         console.log("Success!");
-        //dispatch
+        dispatch({
+          type: Types.FORM_REQUEST_SUBMITTED
+        });
       })
       .catch(err => {
         console.log("Didn't work", err);
-        //dispatch
-      }
-    );
+        dispatch({
+          type: Types.FORM_REQUEST_FAILED
+        });
+      });
   };
 };

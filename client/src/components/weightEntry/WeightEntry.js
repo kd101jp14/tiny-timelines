@@ -6,18 +6,18 @@ class WeightEntry extends Component {
     super(props);
 
     this.state = {
-      weight: ""
+      weightVal: ""
     };
   }
 
   updateWeight = event => {
-    this.setState({ weight: event.target.value });
+    this.setState({ weightVal: event.target.value });
   };
 
   submitWeight = () => {
-    console.log("Clicked!", this.state.weight);
-    this.props.onSubmit(this.state.weight);
-    this.setState({ weight: "" });
+    console.log("Clicked!", this.state.weightVal);
+    this.props.onSubmit(this.state.weightVal);
+    this.setState({ weightVal: "" });
   };
 
   render() {
@@ -26,9 +26,9 @@ class WeightEntry extends Component {
         <div>
           <input
             type="text"
-            placeholder="Please enter decimal. Ex: 9.6 for 9lbs 6oz"
+            placeholder="Please use decimals. (9.6 = 9lbs 6oz)"
             onChange={this.updateWeight}
-            value={this.state.weight}
+            value={this.state.weightVal}
             style={{
               color: "rgba(1, 55, 105, 1)",
               fontSize: "20px"
