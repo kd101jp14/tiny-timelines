@@ -31,7 +31,7 @@ const UserSchema = new Schema({
       required: false
     }
   },
-  weightData: {
+  weights: {
     type: Array,
     required: false,
     weight: {

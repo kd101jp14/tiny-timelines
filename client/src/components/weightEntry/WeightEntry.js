@@ -4,13 +4,9 @@ import PropTypes from "prop-types";
 class WeightEntry extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      weightData: [
-        {
-          weight: "",
-          date: ""
-        }
-      ]
+      weight: ""
     };
   }
 

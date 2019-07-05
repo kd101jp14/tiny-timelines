@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { submitForm } from "../../actions/formActions";
+import { submitWeight } from "../../actions/weightActions";
 import Tracker from "../trackers/Trackers";
 import TwoColumnLayout from "../layout/TwoColumn";
 import TitleSection from "../layout/TitleSection";
@@ -119,7 +120,9 @@ const mapDispatchToProps = dispatch => {
   return {
     logoutUser: () => dispatch(logoutUser()),
     submitForm: (story, user, date) =>
-      dispatch(submitForm(story, user.email, date))
+      dispatch(submitForm(story, user.email, date)),
+    submitWeight: (weight, user, date) =>
+      dispatch(submitWeight(weight, user.email, date))
   };
 };
 
