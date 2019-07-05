@@ -4,11 +4,11 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { getWeights } from "../../actions/trackerActions";
 import "./WeightTracker.css";
-// import { Line, defaults } from "react-chartjs-2";
+import { Line, defaults } from "react-chartjs-2";
 import TwoColumnLayout from "../layout/TwoColumn";
 import TitleSection from "../layout/TitleSection";
 
-// defaults.global.maintainAspectRatio = false
+defaults.global.maintainAspectRatio = false;
 
 class Weights extends Component {
   onLogoutClick = e => {
@@ -26,13 +26,33 @@ class Weights extends Component {
     console.log(user);
     console.log("weights: ", this.props.weights);
 
+    const data = {
+      labels: this.props.weights.weights.map(weight => {
+        return (
+          weight.date
+        )
+      }),
+      datasets: [
+        {
+          label: user.babyName.split(" ")[0] + "'s weight",
+          data: this.props.weights.weights.map(weight => {
+            return (
+              weight.weight
+            )
+          }),
+          fill: false, // Don't fill area under the line
+          borderColor: "rgba(237, 113, 138, 1)" // Line color
+        }
+      ]
+    };
+
     return (
       <div>
         <TwoColumnLayout>
           <TitleSection
-            title={"Here are " + user.babyName.split(" ")[0] + "'s weights!"}
+            title={user.babyName.split(" ")[0] + "'s weight over time"}
           />
-          {this.props.weights.weights.map(weight => {
+          {/* {this.props.weights.weights.map(weight => {
             return (
               <div
                 className="weights-container"
@@ -48,10 +68,15 @@ class Weights extends Component {
                     {"Created on: "}
                     {weight.date}
                   </p>
+                </div> */}
+                <div className="Chart">
+                  <article className="canvas-container">
+                    <Line data={data} />
+                  </article>
                 </div>
-              </div>
+              {/* </div>
             );
-          })}
+          })} */}
         </TwoColumnLayout>
       </div>
     );
@@ -77,6 +102,6 @@ const mapDispatchToProps = dispatch => {
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
   // { logoutUser }
 )(Weights);
