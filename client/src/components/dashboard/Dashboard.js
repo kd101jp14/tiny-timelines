@@ -48,9 +48,9 @@ class Dashboard extends Component {
     this.props.submitForm(inputVal, this.props.auth.user);
   };
 
-  weightSubmit = weightVal => {
+  weightSubmit = weight => {
     console.log("Weight submitted!");
-    this.props.submitWeight(weightVal, this.props.auth.user);
+    this.props.submitWeight(weight, this.props.auth.user);
   };
 
   pictureSubmit = pictures => {

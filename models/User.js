@@ -31,6 +31,18 @@ const UserSchema = new Schema({
       required: false
     }
   },
+  weightData: {
+    type: Array,
+    required: false,
+    weight: {
+      type: Array,
+      required: false
+    },
+    date: {
+      type: Array,
+      required: false
+    }
+  },
   email: {
     type: String,
     required: true
