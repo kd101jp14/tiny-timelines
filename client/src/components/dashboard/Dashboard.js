@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { submitForm } from "../../actions/formActions";
+import { postingPictures } from "../../actions/photoActions";
 import { submitWeight } from "../../actions/weightActions";
-import Tracker from "../trackers/WeightTracker";
 import TwoColumnLayout from "../layout/TwoColumn";
 import TitleSection from "../layout/TitleSection";
 import StoryForm from "../forms/StoryForm";
@@ -12,7 +12,7 @@ import ImageUpload from "../imageUpload/imageUpload";
 import WeightEntry from "../weightEntry/WeightEntry";
 import S3 from "aws-s3";
 import * as Keys from "../../keys";
-import { postingPictures } from "../../actions/photoActions";
+
 import axios from "axios";
 
 class Dashboard extends Component {

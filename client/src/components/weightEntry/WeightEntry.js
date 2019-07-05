@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import "./WeightEntry.css";
 
 class WeightEntry extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class WeightEntry extends Component {
         <div>
           <input
             type="text"
-            placeholder="Please use decimals. (9.6 = 9lbs 6oz)"
+            placeholder="Please use decimals. (9.06 = 9lbs 6oz)"
             onChange={this.updateWeight}
             value={this.state.weightVal}
             style={{
