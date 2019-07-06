@@ -27,5 +27,4 @@ router.post("/getall", (req, res) => {
 });
 
 
-
 module.exports = router;

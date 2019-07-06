@@ -4,12 +4,6 @@ import * as Types from "./types";
 
 export const postingPictures = (userEmail, pictures) => {
   return (dispatch) => {
-    // use AWS s3 library to post. 
-      // TODO: Create free tier aws s3 bucket; Create accessId & acessKey as needed to use aws s3 NPM package.
-
-
-      // WATCHOUT: May need to upload one image at a time - check the documentation for the image upload to limit.
-
       //aws.uploadFile (i think)
       //.then(data => {
       //   dispatch({
@@ -23,14 +17,26 @@ export const postingPictures = (userEmail, pictures) => {
 
 export const gettingPictures = userEmail => {
   return (dispatch) => {
-
-      //aws.getFromBucket (i made this up)
-      //.then(data => {
-      //   dispatch({
-      //     type: Types.GOT_IMAGES,
-      //     results: data (not sure what prop)
-      //   });
-      // })
+    dispatch({
+      type: Types.GETTING_PHOTOS
+    });
+    axios
+      .post("/api/photos/getall", {email: userEmail})
+      .then(res => {
+        console.log("Success!", res);
+        dispatch({
+          type: Types.GOT_PHOTOS,
+          results: res.data
+        });
+        console.log("Success!");
+        //dispatch
+      })
+      .catch(err => {
+        console.log("Didn't work", err);
+        dispatch({
+            type: Types.FAILED_GETTING_PHOTOS
+          });
+      });
       
   }
 };

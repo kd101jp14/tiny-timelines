@@ -10,38 +10,17 @@ import TitleSection from "../layout/TitleSection";
 import StoryForm from "../forms/StoryForm";
 import ImageUpload from "../imageUpload/imageUpload";
 import WeightEntry from "../weightEntry/WeightEntry";
-import S3 from "aws-s3";
-import * as Keys from "../../keys";
+import moment from "moment";
 
-import axios from "axios";
 
 class Dashboard extends Component {
-  state = {
-    AWS_BUCKET_ID: "",
-    AWS_BUCKET_NAME: "",
-    AWS_BUCKET_REGION: "",
-    AWS_BUCKET_SECRET_KEY: ""
-  };
 
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
   };
 
-  getKeys = () => {
-    axios.get("/api/photos/keys").then(res => {
-      const keys = res.data[0];
-      this.setState({
-        AWS_BUCKET_ID: keys.AWS_BUCKET_ID,
-        AWS_BUCKET_NAME: keys.AWS_BUCKET_NAME,
-        AWS_BUCKET_REGION: keys.AWS_BUCKET_REGION,
-        AWS_BUCKET_SECRET_KEY: keys.AWS_BUCKET_SECRET_KEY
-      });
-    });
-  };
-
   componentDidMount() {
-    this.getKeys();
   }
 
   storySubmit = inputVal => {
@@ -56,27 +35,30 @@ class Dashboard extends Component {
 
   pictureSubmit = pictures => {
     console.log("Dashboard callback", pictures);
-    // this.props.postingPictures(pictures, this.props.auth.user);
 
-    const config = {
-      bucketName: this.state.AWS_BUCKET_NAME,
-      // Photos are stored in folders that are distingished by email
-      dirName: this.props.auth.user.email,
-      region: this.state.AWS_BUCKET_REGION,
-      accessKeyId: this.state.AWS_BUCKET_ID,
-      secretAccessKey: this.state.AWS_BUCKET_SECRET_KEY
-    };
 
-    const S3Client = new S3(config);
+    let formData = new FormData()
+    pictures.forEach((file, i) => {
+      formData.append(i, file)
+    });
 
-    for (let i = 0; i < pictures.length; i++) {
-      S3Client.uploadFile(pictures[i])
-        .then(data => {
-          console.log("data!", data);
-          // data.location
-        })
-        .catch(err => console.error("error!", err));
-    }
+    formData.append("EMAIL", this.props.auth.user.email)
+    formData.append("date", moment());
+
+    console.log("Form Data", formData);
+
+    fetch(`http://localhost:5000/api/photos/post`, {
+      method: 'POST',
+      body: formData
+    })
+    .then(res => {
+      return res.json();
+    })
+    .then(images => {
+      console.log("Success 2", images);
+    }).catch(err => {
+      console.log("Error", err);
+    });
   };
 
   render() {
