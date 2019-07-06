@@ -33,7 +33,7 @@ if (process.env.NODE_ENV !== "production") {
   // db = require("./config/keys").mongoURI;
 }
 
-const db = MONGODB_URI;
+const db = process.env.MONGODB_URI;
 
 // Connect to MongoDB
 mongoose

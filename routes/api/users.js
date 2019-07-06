@@ -94,7 +94,7 @@ console.log("It's valid")
         // Sign token
         jwt.sign(
           payload,
-          secretOrKey,
+          process.env.secretOrKey,
           {
             expiresIn: 31556926 // 1 year in seconds
           },
