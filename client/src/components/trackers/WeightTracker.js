@@ -28,17 +28,13 @@ class Weights extends Component {
 
     const data = {
       labels: this.props.weights.weights.map(weight => {
-        return (
-          weight.date
-        )
+        return weight.date;
       }),
       datasets: [
         {
           label: user.babyName.split(" ")[0] + "'s weight",
           data: this.props.weights.weights.map(weight => {
-            return (
-              weight.weight
-            )
+            return weight.weight;
           }),
           fill: false, // Don't fill area under the line
           borderColor: "rgba(237, 113, 138, 1)" // Line color
@@ -50,33 +46,14 @@ class Weights extends Component {
       <div>
         <TwoColumnLayout>
           <TitleSection
-            title={user.babyName.split(" ")[0] + "'s weight over time"}
+            title={user.babyName.split(" ")[0] + "'s growth over time"}
           />
-          {/* {this.props.weights.weights.map(weight => {
-            return (
-              <div
-                className="weights-container"
-                style={{
-                  backgroundColor: "rgba(77, 182, 172, 0.5)",
-                  color: "rgba(1, 55, 105, 1)"
-                }}
-              >
-                <div>
-                  <p>
-                    {weight.weight}
-                    {<br />}
-                    {"Created on: "}
-                    {weight.date}
-                  </p>
-                </div> */}
-                <div className="Chart">
-                  <article className="canvas-container">
-                    <Line data={data} />
-                  </article>
-                </div>
-              {/* </div>
-            );
-          })} */}
+
+          <div className="Chart">
+            <article className="canvas-container">
+              <Line data={data} height={500} />
+            </article>
+          </div>
         </TwoColumnLayout>
       </div>
     );

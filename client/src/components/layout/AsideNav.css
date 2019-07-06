@@ -1,0 +1,24 @@
+.aside-navigation-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.aside-navigation-container .nav-btn {
+}
+
+.aside-navigation-container > div {
+    margin-bottom: 10px;
+}
+
+
+@media only screen and (min-width: 768px){
+    .aside-navigation-container{
+        display: block;
+    }
+    .aside-navigation-container .nav-btn {
+        width: 140px;
+        border-radius: 3px;
+        letter-spacing: 1.5px;
+    }
+}

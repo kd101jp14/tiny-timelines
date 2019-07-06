@@ -5,6 +5,8 @@ import { logoutUser } from "../../actions/authActions";
 import { getStories } from "../../actions/storyActions";
 import TwoColumnLayout from "../layout/TwoColumn";
 import TitleSection from "../layout/TitleSection";
+import Story from "./Story";
+import Timeline from "../timeline/TimelineContainer";
 
 class Stories extends Component {
   onLogoutClick = e => {
@@ -21,6 +23,19 @@ class Stories extends Component {
     const { user } = this.props.auth;
     console.log(user);
     console.log("stories: ", this.props.stories);
+
+    if(this.props.stories === null 
+      || this.props.stories.stories.length === 0){
+      return null;
+    }
+
+    let timelineData = [];
+    this.props.stories.stories.forEach(function(story){
+      timelineData.push({
+        date: story.createDate,
+        text: story.content
+      })
+    });
     
     return (
       <div>
@@ -28,26 +43,8 @@ class Stories extends Component {
           <TitleSection
             title={"Here are " + user.babyName.split(" ")[0] + "'s stories!"}
           />
-          {this.props.stories.stories.map(story => {
-            return (
-              <div
-                className="stories-container"
-                style={{
-                  backgroundColor: "rgba(77, 182, 172, 0.5)",
-                  color: "rgba(1, 55, 105, 1)"
-                }}
-              >
-                <div>
-                  <p>
-                    {story.content}
-                    {<br />}
-                    {"Created on: "}
-                    {story.createDate}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
+
+          <Timeline data={timelineData} />
         </TwoColumnLayout>
       </div>
     );

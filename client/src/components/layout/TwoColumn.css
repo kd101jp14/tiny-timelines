@@ -1,15 +1,22 @@
 .two-column-container {
-    display: flex;
+    display: block;
     margin: 50px;
 }
 
-.two-column-container .left-column{
-    width: 30%;
-}
-.two-column-container .right-column{
-    width: 70%;
-}
-
-.nav-btn{
-    margin-bottom: 3px;
+@media only screen and (min-width: 768px){
+    .two-column-container {
+        display: flex;
+        margin: 50px;
+    }
+    
+    .two-column-container .left-column{
+        width: 30%;
+    }
+    .two-column-container .right-column{
+        width: 70%;
+    }
+    
+    .nav-btn{
+        margin-bottom: 3px;
+    }
 }
