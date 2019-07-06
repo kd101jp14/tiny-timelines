@@ -27,10 +27,14 @@ app.use(
 );
 app.use(bodyParser.json());
 
+let db;
+
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
   // DB Config
-  const db = require("./config/keys").mongoURI;
+  db = require("./config/keys").mongoURI;
+} else {
+  db = MONGODB_URI;
 }
 
 // Connect to MongoDB
