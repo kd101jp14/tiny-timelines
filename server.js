@@ -11,10 +11,6 @@ const photos = require("./routes/api/photos");
 const weights = require("./routes/api/weights");
 const tracker = require("./routes/api/tracker");
 
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
-}
-
 const app = express();
 
 app.use(function(req, res, next) {
@@ -32,7 +28,8 @@ app.use(
 app.use(bodyParser.json());
 
 // DB Config
-const db = require("./config/keys").mongoURI;
+
+let db = process.env.MONGODB_URI;
 
 // Connect to MongoDB
 mongoose
