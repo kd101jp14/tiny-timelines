@@ -27,13 +27,9 @@ app.use(
 );
 app.use(bodyParser.json());
 
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-  // DB Config
-  // db = require("./config/keys").mongoURI;
-}
+// DB Config
 
-const db = process.env.MONGODB_URI;
+let db = process.env.MONGODB_URI;
 
 // Connect to MongoDB
 mongoose
