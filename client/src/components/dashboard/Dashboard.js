@@ -47,7 +47,7 @@ class Dashboard extends Component {
 
     console.log("Form Data", formData);
 
-    fetch(`http://localhost:5000/api/photos/post`, {
+    fetch(`/api/photos/post`, {
       method: 'POST',
       body: formData
     })

@@ -12,7 +12,13 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "react-images-upload": "^1.2.7",
+    "react-images-uploader": "^1.2.0-rc1",
+    "redux-thunk": "^2.3.0",
+    "chart.js": "^2.8.0",
+    "react-chartjs-2": "^2.7.6",
+    "jquery": "^3.4.1",
+    "moment": "^2.24.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -20,7 +26,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:5000",
   "eslintConfig": {
     "extends": "react-app"
   },
