@@ -1,5 +1,6 @@
 // Dependencies
 const express = require("express");
+const path = require("path");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
@@ -12,6 +13,13 @@ const weights = require("./routes/api/weights");
 const tracker = require("./routes/api/tracker");
 
 const app = express();
+
+if (process.env.NODE_ENV !== "production") {
+  // DB Config
+    require("dotenv").config();
+    // DB Config
+    // db = require("./config/keys").mongoURI;
+  }
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -42,6 +50,11 @@ app.use(passport.initialize());
 
 // Passport config
 require("./config/passport")(passport);
+
+app.use(express.static(path.join(__dirname, "client", "build")));
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 // Routes
 app.use("/api/users", users);
